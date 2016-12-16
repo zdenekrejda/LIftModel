@@ -1,0 +1,25 @@
+#svg2 {
+    width: 200px;
+    height: 200px;
+}
+
+/* SVG paper background and frame */
+.led_off {
+    fill: #0d4c0b;
+    stroke:#040404;
+    stroke-width: 10;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity:1;
+}
+
+.led_on {
+    fill: #00ff00;
+}
+
+.glow {
+    /*fill:#00ff00;*/
+    fill-opacity: .0;
+    stroke-width: 0;
+    stroke-opacity:.0;
+}
