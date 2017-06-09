@@ -217,35 +217,3 @@ Shaft.prototype.setDestination = function(dest){
 };
 
 var shaft = new Shaft("svg", 8);
-
-shaft.setPosition(0, true);
-
-shaft.setDoor(1).setPosition(0,true).setCalls({Car: 8}).setDestination(3);
-
-setTimeout(function(){
-    shaft.setDoor(1).setPosition(0,false).setCalls({Car: 8}).setDestination(3);
-}, 1000);
-
-setTimeout(function(){
-    shaft.setDoor(1).setPosition(1,true).setCalls({Car: 8}).setDestination(3);
-}, 2000);
-
-setTimeout(function(){
-    shaft.setDoor(1).setPosition(2,false).setCalls({Car: 8}).setDestination(3);
-}, 3000);
-
-setTimeout(function(){
-    shaft.setDoor(1).setPosition(2,true).setCalls({Car: 8}).setDestination(3);
-}, 4000);
-
-setTimeout(function(){
-    shaft.setDoor(1).setPosition(3,false).setCalls({Car: 8}).setDestination(3);
-}, 5000);
-
-setTimeout(function(){
-    shaft.setDoor(1).setPosition(3,true).setCalls({Car: 8}).setDestination(3);
-}, 6000);
-
-setTimeout(function(){
-    shaft.setDoor(2).setPosition(3,true).setCalls({Car: 0}).setDestination(3);
-}, 7000);

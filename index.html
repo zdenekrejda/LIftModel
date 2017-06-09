@@ -44,9 +44,16 @@
             }, 6000);
 
             setTimeout(function(){
-                shaft.setDoor(2).setPosition(3,true).setCalls({}).setDestination(3);
+                shaft.setDoor(2).setPosition(3,true).setCalls({Car: 0}).setDestination(3);
             }, 7000);
 
+            setTimeout(function(){
+                shaft.setDoor(2).setPosition(3,true).setCalls({Car: 8}).setDestination(3);
+            }, 8000);
+
+            setTimeout(function(){
+                shaft.setDoor(2).setPosition(3,true).setCalls().setDestination(3);
+            }, 9000);
         </script>
     </body>
 </html>
