@@ -190,11 +190,19 @@ Shaft.prototype.setPosition = function(floor, floorLevel) {
 };
 
 Shaft.prototype.setCalls = function(calls) {
-    this.floorLevels.map(function(floor){
-        floor.calls.car.toggleClass("confirmed_call", (1 << floor.id) & calls.Car);
-        floor.calls.up.toggleClass("confirmed_call", (1 << floor.id) & calls.FloorUp);
-        floor.calls.dn.toggleClass("confirmed_call", (1 << floor.id) & calls.FloorDown);
-    });
+
+    function SetCall(callClass, floor, calls) {
+            if(!calls) calls = 0;
+            callClass.toggleClass("confirmed_call", (1 << floor) & calls);
+    }
+
+    if(calls) {
+        this.floorLevels.map(function(floor){
+            SetCall(floor.calls.car, floor.id, calls.Car);
+            SetCall(floor.calls.up,  floor.id, calls.FloorUp);
+            SetCall(floor.calls.dn,  floor.id, calls.FloorDown);
+        });
+    }
     return this;
 };
 
@@ -239,5 +247,5 @@ setTimeout(function(){
 }, 6000);
 
 setTimeout(function(){
-    shaft.setDoor(2).setPosition(3,true).setCalls({}).setDestination(3);
+    shaft.setDoor(2).setPosition(3,true).setCalls({Car: 0}).setDestination(3);
 }, 7000);
