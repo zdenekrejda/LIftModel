@@ -195,13 +195,20 @@ Shaft.prototype.setCalls = function(calls) {
             callClass.toggleClass("confirmed_call", (1 << floor) & calls);
     }
 
-    if(calls) {
-        this.floorLevels.map(function(floor){
-            SetCall(floor.calls.car, floor.id, calls.Car);
-            SetCall(floor.calls.up,  floor.id, calls.FloorUp);
-            SetCall(floor.calls.dn,  floor.id, calls.FloorDown);
-        });
+    if(!calls) {
+        calls = {
+            Car: 0,
+            FloorUp: 0,
+            FloorDown: 0,
+        };
     }
+
+    this.floorLevels.map(function(floor){
+        SetCall(floor.calls.car, floor.id, calls.Car);
+        SetCall(floor.calls.up,  floor.id, calls.FloorUp);
+        SetCall(floor.calls.dn,  floor.id, calls.FloorDown);
+    });
+
     return this;
 };
 
