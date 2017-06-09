@@ -190,7 +190,6 @@ Shaft.prototype.setPosition = function(floor, floorLevel) {
 };
 
 Shaft.prototype.setCalls = function(calls) {
-
     function SetCall(callClass, floor, calls) {
             if(!calls) calls = 0;
             callClass.toggleClass("confirmed_call", (1 << floor) & calls);
@@ -218,6 +217,7 @@ Shaft.prototype.setDestination = function(dest){
 };
 
 var shaft = new Shaft("svg", 8);
+
 shaft.setPosition(0, true);
 
 shaft.setDoor(1).setPosition(0,true).setCalls({Car: 8}).setDestination(3);
